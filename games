@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Learning Games</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #FFE5E5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #FF9999;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .nav-menu {
+            background-color: #98FB98;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: white;
+            border-radius: 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #FFB6C1;
+        }
+
+        .game-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .game-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .memory-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        .memory-card {
+            background-color: #FFB6C1;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+            background-color: white;
+        }
+
+        .button {
+            background-color: #FF69B4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .score {
+            font-size: 20px;
+            color: #4CAF50;
+            margin: 10px;
+        }
+
+        #current-color {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        #color-answer {
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            margin: 10px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎮 Food Learning Games 🎲</h1>
+        <p>Learn about healthy foods while having fun!</p>
+    </div>
+
+    <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="games.html">Games</a>
+    </div>
+
+    <div class="welcome-message">
+        <p>Play fun games and learn about healthy foods!</p>
+    </div>
+
+    <div class="game-container">
+        <div class="game-card">
+            <h2>Food Group Sorting Game</h2>
+            <p>Drag the foods to their correct groups!</p>
+            <div id="foods-to-sort">
+                <!-- Foods will be added here by JavaScript -->
+            </div>
+            <div class="drop-zone" id="fruits">
+                <h3>Fruits 🍎</h3>
+            </div>
+            <div class="drop-zone" id="vegetables">
+                <h3>Vegetables 🥕</h3>
+            </div>
+            <div class="score" id="sort-score">Score: 0</div>
+        </div>
+
+        <div class="game-card">
+            <h2>Healthy Choice Quiz</h2>
+            <div id="quiz-container">
+                <p id="question"></p>
+                <button class="button" onclick="checkAnswer(true)">Yes</button>
+                <button class="button" onclick="checkAnswer(false)">No</button>
+            </div>
+            <div class="score" id="quiz-score">Score: 0</div>
+        </div>
+
+        <div class="game-card">
+            <h2>Memory Match: Healthy Pairs</h2>
+            <div id="memory-game" class="memory-container">
+                <!-- Cards will be added by JavaScript -->
+            </div>
+            <button class="button" onclick="startMemoryGame()">Start New Game</button>
+            <div class="score" id="memory-score">Matches: 0</div>
+        </div>
+
+        <div class="game-card">
+            <h2>Food Color Challenge</h2>
+            <div id="color-challenge">
+                <p>What foods can you eat that are...</p>
+                <div id="current-color">RED</div>
+                <input type="text" id="color-answer" placeholder="Type a food...">
+                <button class="button" onclick="checkColorAnswer()">Submit</button>
+            </div>
+            <div class="score" id="color-score">Score: 0</div>
+        </div>
+    </div>
+
+    <script>
+        // Food sorting game
+        const foods = [
+            { name: '🍎 Apple', type: 'fruits' },
+            { name: '🍌 Banana', type: 'fruits' },
+            { name: '🥕 Carrot', type: 'vegetables' },
+            { name: '🥦 Broccoli', type: 'vegetables' },
+            { name: '🍇 Grapes', type: 'fruits' },
+            { name: '🥬 Lettuce', type: 'vegetables' }
+        ];
+
+        let sortScore = 0;
+
+        foods.forEach(food => {
+            const foodElement = document.createElement('div');
+            foodElement.className = 'food-item';
+            foodElement.draggable = true;
+            foodElement.textContent = food.name;
+            foodElement.dataset.type = food.type;
+            
+            foodElement.addEventListener('dragstart', e => {
+                e.dataTransfer.setData('text/plain', food.type);
+            });
+
+            document.getElementById('foods-to-sort').appendChild(foodElement);
+        });
+
+        document.querySelectorAll('.drop-zone').forEach(zone => {
+            zone.addEventListener('dragover', e => e.preventDefault());
+            zone.addEventListener('drop', e => {
+                e.preventDefault();
+                const foodType = e.dataTransfer.getData('text/plain');
+                if (zone.id === foodType) {
+                    sortScore += 10;
+                    document.getElementById('sort-score').textContent = `Score: ${sortScore}`;
+                }
+            });
+        });
+
+        // Memory Game
+        const memoryCards = [
+            '🍎', '🍎', '🍌', '🍌', '🥕', '🥕', 
+            '🥦', '🥦', '🍇', '🍇', '🥬', '🥬'
+        ];
+
+        let flippedCards = [];
+        let matchedPairs = 0;
+
+        function startMemoryGame() {
+            const gameContainer = document.getElementById('memory-game');
+            gameContainer.innerHTML = '';
+            matchedPairs = 0;
+            document.getElementById('memory-score').textContent = 'Matches: 0';
+
+            // Shuffle cards
+            const shuffledCards = [...memoryCards].sort(() => Math.random() - 0.5);
+
+            shuffledCards.forEach((card, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'memory-card';
+                cardElement.dataset.value = card;
+                cardElement.textContent = '?';
+                cardElement.addEventListener('click', flipCard);
+                gameContainer.appendChild(cardElement);
+            });
+        }
+
+        function flipCard() {
+            if (flippedCards.length < 2 && !flippedCards.includes(this)) {
+                this.textContent = this.dataset.value;
+                this.classList.add('flipped');
+                flippedCards.push(this);
+
+                if (flippedCards.length === 2) {
+                    setTimeout(checkMatch, 1000);
+                }
+            }
+        }
+
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            if (card1.dataset.value === card2.dataset.value) {
+                matchedPairs++;
+                document.getElementById('memory-score').textContent = `Matches: ${matchedPairs}`;
+            } else {
+                card1.textContent = '?';
+                card2.textContent = '?';
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+            }
+            flippedCards = [];
+        }
+
+        // Color Challenge Game
+        const colorFoods = {
+            RED: ['apple', 'strawberry', 'tomato', 'watermelon', 'cherry'],
+            GREEN: ['broccoli', 'spinach', 'lettuce', 'cucumber', 'pear'],
+            YELLOW: ['banana', 'corn', 'lemon', 'pineapple', 'pepper'],
+            ORANGE: ['carrot', 'orange', 'peach', 'apricot', 'pumpkin'],
+            PURPLE: ['grape', 'eggplant', 'plum', 'blackberry', 'beetroot']
+        };
+
+        let currentColor = 'RED';
+        let colorScore = 0;
+
+        function changeColor() {
+            const colors = Object.keys(colorFoods);
+            currentColor = colors[Math.floor(Math.random() * colors.length)];
+            document.getElementById('current-color').textContent = currentColor;
+            document.getElementById('current-color').style.backgroundColor = currentColor.toLowerCase();
+        }
+
+        function checkColorAnswer() {
+            const answer = document.getElementById('color-answer').value.toLowerCase();
+            if (colorFoods[currentColor].includes(answer)) {
+                colorScore += 10;
+                document.getElementById('color-score').textContent = `Score: ${colorScore}`;
+                document.getElementById('color-answer').value = '';
+                changeColor();
+            }
+        }
+
+        // Initialize games
+        startMemoryGame();
+        changeColor();
+
+        // Quiz game
+        const questions = [
+            { text: "Is an apple a healthy snack?", answer: true },
+            { text: "Are vegetables good for you?", answer: true },
+            { text: "Is water better than soda?", answer: true },
+            { text: "Should you eat candy every day?", answer: false }
+        ];
+
+        let currentQuestion = 0;
+        let quizScore = 0;
+
+        function showQuestion() {
+            if (currentQuestion < questions.length) {
+                document.getElementById('question').textContent = questions[currentQuestion].text;
+            } else {
+                document.getElementById('question').textContent = "Game Over! Well done! 🎉";
+            }
+        }
+
+        function checkAnswer(answer) {
+            if (currentQuestion < questions.length) {
+                if (answer === questions[currentQuestion].answer) {
+                    quizScore += 10;
+                    document.getElementById('quiz-score').textContent = `Score: ${quizScore}`;
+                }
+                currentQuestion++;
+                showQuestion();
+            }
+        }
+
+        showQuestion();
+    </script>
+</body>
+</html>
