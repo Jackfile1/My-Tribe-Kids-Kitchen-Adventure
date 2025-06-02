@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kid's Food Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #FFE5E5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #FF9999;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .nav-menu {
+            background-color: #98FB98;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .nav-menu a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: white;
+            border-radius: 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #FFB6C1;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .food-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .food-tracker {
+            background-color: #FFF0F5;
+        }
+
+        .button {
+            background-color: #FF69B4;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .food-emoji {
+            font-size: 30px;
+            margin: 5px;
+        }
+
+        .progress-bar {
+            background-color: #ddd;
+            border-radius: 20px;
+            height: 20px;
+            margin: 10px 0;
+        }
+
+        .progress {
+            background-color: #4CAF50;
+            height: 100%;
+            border-radius: 20px;
+            width: 0%;
+            transition: width 0.5s;
+        }
+
+        .welcome-message {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🌈 Kid's Healthy Food Adventure 🌈</h1>
+        <p>Let's learn about yummy and healthy foods!</p>
+    </div>
+
+    <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="games.html">Games</a>
+    </div>
+
+    <div class="welcome-message">
+        <p>Welcome to your food adventure! Track your healthy choices, learn new recipes, and play fun food games!</p>
+    </div>
+
+    <div class="container">
+        <div class="food-card">
+            <h2>🌟 Today's Food Challenge 🌟</h2>
+            <p>Try to eat a rainbow today! Check off the colors you've eaten:</p>
+            <input type="checkbox" id="red" onclick="updateProgress()"> <label for="red">Red (like strawberries 🍓)</label><br>
+            <input type="checkbox" id="orange" onclick="updateProgress()"> <label for="orange">Orange (like carrots 🥕)</label><br>
+            <input type="checkbox" id="yellow" onclick="updateProgress()"> <label for="yellow">Yellow (like bananas 🍌)</label><br>
+            <input type="checkbox" id="green" onclick="updateProgress()"> <label for="green">Green (like broccoli 🥦)</label><br>
+            <input type="checkbox" id="purple" onclick="updateProgress()"> <label for="purple">Purple (like grapes 🍇)</label><br>
+            
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+        </div>
+
+        <div class="food-card food-tracker">
+            <h2>🎯 My Goals Today</h2>
+            <p>Track your healthy choices:</p>
+            <div class="food-emoji">🥤</div> Water drinks: <button class="button" onclick="addWater()">Add a drink</button>
+            <p id="waterCount">0 glasses</p>
+            
+            <div class="food-emoji">🍎</div> Fruits eaten: <button class="button" onclick="addFruit()">Add a fruit</button>
+            <p id="fruitCount">0 pieces</p>
+            
+            <div class="food-emoji">🥬</div> Veggies eaten: <button class="button" onclick="addVeggie()">Add a veggie</button>
+            <p id="veggieCount">0 servings</p>
+        </div>
+
+        <div class="food-card">
+            <h2>🎮 Fun Food Facts</h2>
+            <button class="button" onclick="showRandomFact()">Show me a fact!</button>
+            <p id="foodFact"></p>
+        </div>
+
+        <div class="food-card">
+            <h2>🏆 My Achievements</h2>
+            <p>Complete challenges to earn stars! ⭐</p>
+            <p id="stars">Stars earned: 0</p>
+            <button class="button" onclick="checkAchievements()">Check Progress</button>
+        </div>
+    </div>
+
+    <script>
+        let waterCount = 0;
+        let fruitCount = 0;
+        let veggieCount = 0;
+        let stars = 0;
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checked = Array.from(checkboxes).filter(box => box.checked).length;
+            const progress = (checked / checkboxes.length) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+        }
+
+        function addWater() {
+            waterCount++;
+            document.getElementById('waterCount').textContent = waterCount + ' glasses';
+        }
+
+        function addFruit() {
+            fruitCount++;
+            document.getElementById('fruitCount').textContent = fruitCount + ' pieces';
+        }
+
+        function addVeggie() {
+            veggieCount++;
+            document.getElementById('veggieCount').textContent = veggieCount + ' servings';
+        }
+
+        const facts = [
+            "Bananas are berries, but strawberries aren't!",
+            "Carrots were originally purple before turning orange!",
+            "An apple can float in water because it's 25% air!",
+            "Broccoli contains more vitamin C than oranges!",
+            "Honey never spoils - archaeologists found 3000-year-old honey that's still good!"
+        ];
+
+        function showRandomFact() {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('foodFact').textContent = randomFact;
+        }
+
+        function checkAchievements() {
+            let newStars = 0;
+            if (waterCount >= 5) newStars++;
+            if (fruitCount >= 2) newStars++;
+            if (veggieCount >= 3) newStars++;
+            stars = newStars;
+            document.getElementById('stars').textContent = 'Stars earned: ' + '⭐'.repeat(stars);
+        }
+    </script>
+</body>
+</html>
