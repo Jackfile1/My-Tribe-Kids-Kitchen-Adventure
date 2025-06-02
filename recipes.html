@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kid-Friendly Recipes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🍳 Fun & Healthy Recipes 🥗</h1>
+        <p>Let's make something yummy!</p>
+    </div>
+
+    <div class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="games.html">Games</a>
+    </div>
+
+    <div class="welcome-message">
+        <p>Choose a fun recipe to make with your grown-up helper!</p>
+    </div>
+
+    <div class="recipe-filter-system">
+        <!-- Main Category Buttons -->
+        <div class="main-categories">
+            <h2>Choose Your Cooking Adventure!</h2>
+            <div class="category-buttons">
+                <button class="category-button active" onclick="filterMainCategory('all')">All Recipes</button>
+                <button class="category-button" onclick="filterMainCategory('meals')">Main Meals</button>
+                <button class="category-button" onclick="filterMainCategory('baking')">Baking</button>
+                <button class="category-button" onclick="filterMainCategory('snacks')">Healthy Snacks</button>
+                <button class="category-button" onclick="filterMainCategory('special')">Special Occasions</button>
+            </div>
+        </div>
+
+        <!-- Sub-Categories -->
+        <div class="sub-categories">
+            <!-- Skill Level -->
+            <div class="filter-group">
+                <h3>Skill Level</h3>
+                <button class="filter-button" onclick="filterBySkill('beginner')">Beginner</button>
+                <button class="filter-button" onclick="filterBySkill('intermediate')">Intermediate</button>
+                <button class="filter-button" onclick="filterBySkill('advanced')">Advanced</button>
+            </div>
+
+            <!-- Time Required -->
+            <div class="filter-group">
+                <h3>Time Required</h3>
+                <button class="filter-button" onclick="filterByTime('quick')">Quick (15 mins)</button>
+                <button class="filter-button" onclick="filterByTime('medium')">Medium (30 mins)</button>
+                <button class="filter-button" onclick="filterByTime('long')">Long (45+ mins)</button>
+            </div>
+
+            <!-- Dietary Options -->
+            <div class="filter-group">
+                <h3>Dietary Options</h3>
+                <button class="filter-button" onclick="filterByDiet('vegetarian')">Vegetarian</button>
+                <button class="filter-button" onclick="filterByDiet('gluten-free')">Gluten-Free</button>
+                <button class="filter-button" onclick="filterByDiet('dairy-free')">Dairy-Free</button>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="recipe-search">
+            <input type="text" id="recipe-search-input" placeholder="Search recipes...">
+            <button class="search-button" onclick="searchRecipes()">Search</button>
+        </div>
+    </div>
+
+    <div class="recipe-container">
+        <!-- MAIN MEALS CATEGORY -->
+        
+        <!-- Main Meal Recipe 1: Easy Pasta -->
+        <div class="recipe-card" data-category="meals" data-skill="beginner" data-time="quick" data-diet="vegetarian">
+            <h2>🍝 Rainbow Veggie Pasta</h2>
+            <span class="difficulty easy">Beginner</span>
+            <span class="time-tag">15 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>1 cup pasta (any shape)</li>
+                    <li>1 carrot, grated</li>
+                    <li>1 small zucchini, grated</li>
+                    <li>1/2 cup cherry tomatoes, halved</li>
+                    <li>1/4 cup grated cheese</li>
+                    <li>2 tablespoons olive oil</li>
+                    <li>Salt and pepper to taste</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Boiling water and cooking pasta</li>
+                        <li>Using grater</li>
+                        <li>Cutting tomatoes</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Ask an adult to boil water and cook pasta</li>
+                        <li>While pasta cooks, grate vegetables with adult supervision</li>
+                        <li>Ask adult to help drain pasta</li>
+                        <li>Mix pasta with vegetables</li>
+                        <li>Add olive oil and cheese</li>
+                        <li>Season with salt and pepper</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Try different pasta shapes</li>
+                        <li>Add your favorite vegetables</li>
+                        <li>Can be served hot or cold</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Carbohydrates from pasta for energy</li>
+                        <li>Vitamins from vegetables</li>
+                        <li>Protein from cheese</li>
+                        <li>Healthy fats from olive oil</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(900)">Start 15-Minute Timer</button>
+                <div class="timer" id="timer-pasta"></div>
+            </div>
+        </div>
+        <!-- Main Meal Recipe 2: Baked Potato Bar -->
+        <div class="recipe-card" data-category="meals" data-skill="beginner" data-time="long" data-diet="gluten-free">
+            <h2>🥔 Build-Your-Own Potato Bar</h2>
+            <span class="difficulty easy">Beginner</span>
+            <span class="time-tag">45 mins</span>
+            <span class="diet-tag">Gluten-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>4 medium baking potatoes</li>
+                    <li>Toppings (choose your favorites):
+                        <ul>
+                            <li>Grated cheese</li>
+                            <li>Baked beans</li>
+                            <li>Corn</li>
+                            <li>Diced tomatoes</li>
+                            <li>Greek yogurt or sour cream</li>
+                        </ul>
+                    </li>
+                    <li>Olive oil</li>
+                    <li>Salt</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating the oven</li>
+                        <li>Handling hot potatoes</li>
+                        <li>Cutting potatoes open</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Ask adult to preheat oven to 200°C/400°F</li>
+                        <li>Wash potatoes thoroughly</li>
+                        <li>Prick potatoes with a fork (with adult supervision)</li>
+                        <li>Rub with olive oil and sprinkle with salt</li>
+                        <li>Adult will put in oven for 45-60 minutes</li>
+                        <li>Prepare toppings while waiting</li>
+                        <li>Adult will check if potatoes are done</li>
+                        <li>Add your favorite toppings!</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Potatoes are done when soft inside</li>
+                        <li>Try different toppings combinations</li>
+                        <li>Make extra for tomorrow's lunch</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Potatoes provide energy and vitamin C</li>
+                        <li>Toppings add protein and calcium</li>
+                        <li>Naturally gluten-free meal</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(2700)">Start 45-Minute Timer</button>
+                <div class="timer" id="timer-potato"></div>
+            </div>
+        </div>
+
+        <!-- Main Meal Recipe 3: Homemade Pizza -->
+        <div class="recipe-card" data-category="meals" data-skill="intermediate" data-time="medium" data-diet="vegetarian">
+            <h2>🍕 Personal Pizza Chef</h2>
+            <span class="difficulty medium">Intermediate</span>
+            <span class="time-tag">30 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>Pre-made pizza base or flatbread</li>
+                    <li>Tomato sauce</li>
+                    <li>Grated mozzarella cheese</li>
+                    <li>Toppings of choice:
+                        <ul>
+                            <li>Sliced bell peppers</li>
+                            <li>Mushrooms</li>
+                            <li>Cherry tomatoes</li>
+                            <li>Sweetcorn</li>
+                            <li>Pineapple pieces</li>
+                        </ul>
+                    </li>
+                    <li>Italian herbs</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating the oven</li>
+                        <li>Cutting vegetables</li>
+                        <li>Handling hot pizza</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Ask adult to preheat oven to 200°C/400°F</li>
+                        <li>Place pizza base on baking tray</li>
+                        <li>Spread tomato sauce evenly</li>
+                        <li>Add grated cheese</li>
+                        <li>Arrange toppings in a pattern</li>
+                        <li>Sprinkle with herbs</li>
+                        <li>Adult will put in oven for 12-15 minutes</li>
+                        <li>Let cool slightly before eating</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Don't overload with toppings</li>
+                        <li>Make faces with your toppings</li>
+                        <li>Try different cheese combinations</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Carbohydrates from base</li>
+                        <li>Protein from cheese</li>
+                        <li>Vitamins from vegetables</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(1800)">Start 30-Minute Timer</button>
+                <div class="timer" id="timer-pizza"></div>
+            </div>
+        </div>
+        <!-- Main Meal Recipe 4: Stir-Fry Adventure -->
+        <div class="recipe-card" data-category="meals" data-skill="intermediate" data-time="medium" data-diet="dairy-free">
+            <h2>🥢 Rainbow Stir-Fry Adventure</h2>
+            <span class="difficulty medium">Intermediate</span>
+            <span class="time-tag">25 mins</span>
+            <span class="diet-tag">Dairy-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>2 cups cooked rice</li>
+                    <li>1 carrot, cut into strips</li>
+                    <li>1 bell pepper, sliced</li>
+                    <li>1 cup broccoli florets</li>
+                    <li>1 cup snap peas</li>
+                    <li>2 tablespoons soy sauce</li>
+                    <li>1 tablespoon honey</li>
+                    <li>2 tablespoons vegetable oil</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Cooking rice</li>
+                        <li>Cutting vegetables</li>
+                        <li>Using the stove</li>
+                        <li>Handling hot pan</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Adult will cook rice ahead of time</li>
+                        <li>Help wash all vegetables</li>
+                        <li>Adult will cut vegetables</li>
+                        <li>Mix soy sauce and honey in a small bowl</li>
+                        <li>Adult will heat oil and stir-fry vegetables</li>
+                        <li>Add sauce mixture</li>
+                        <li>Serve over rice</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Try different vegetable combinations</li>
+                        <li>Can use pre-cut vegetables</li>
+                        <li>Make extra rice for tomorrow</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Rice provides energy</li>
+                        <li>Colorful vegetables for vitamins</li>
+                        <li>Naturally dairy-free</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(1500)">Start 25-Minute Timer</button>
+                <div class="timer" id="timer-stirfry"></div>
+            </div>
+        </div>
+
+        <!-- BAKING CATEGORY -->
+
+        <!-- Baking Recipe 1: Simple Cookies -->
+        <div class="recipe-card" data-category="baking" data-skill="beginner" data-time="medium" data-diet="vegetarian">
+            <h2>🍪 Easy-Peasy Sugar Cookies</h2>
+            <span class="difficulty easy">Beginner</span>
+            <span class="time-tag">30 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>2 cups all-purpose flour</li>
+                    <li>1/2 cup butter (room temperature)</li>
+                    <li>1 cup sugar</li>
+                    <li>1 egg</li>
+                    <li>1 teaspoon vanilla extract</li>
+                    <li>1/2 teaspoon baking powder</li>
+                    <li>Cookie cutters</li>
+                    <li>Rolling pin</li>
+                    <li>Baking sheet</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating the oven</li>
+                        <li>Handling hot baking sheets</li>
+                        <li>Supervising electric mixer use</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Ask adult to preheat oven to 180°C/350°F</li>
+                        <li>Mix butter and sugar until fluffy</li>
+                        <li>Add egg and vanilla, mix well</li>
+                        <li>Add flour and baking powder gradually</li>
+                        <li>Roll dough on floured surface</li>
+                        <li>Cut shapes with cookie cutters</li>
+                        <li>Place on baking sheet</li>
+                        <li>Adult will bake for 10-12 minutes</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Chill dough if too sticky</li>
+                        <li>Use different shaped cutters</li>
+                        <li>Decorate with icing when cool</li>
+                    </ul>
+                </div>
+
+                <div class="science-corner">
+                    <h3>Kitchen Science:</h3>
+                    <p>Watch how the cookies spread and change color while baking. 
+                    The butter melts and sugar caramelizes to make them golden brown!</p>
+                </div>
+
+                <button class="button" onclick="startTimer(1800)">Start 30-Minute Timer</button>
+                <div class="timer" id="timer-cookies"></div>
+            </div>
+        </div>
+        <!-- Baking Recipe 2: Banana Muffins -->
+        <div class="recipe-card" data-category="baking" data-skill="intermediate" data-time="medium" data-diet="dairy-free">
+            <h2>🍌 Brilliant Banana Muffins</h2>
+            <span class="difficulty medium">Intermediate</span>
+            <span class="time-tag">35 mins</span>
+            <span class="diet-tag">Dairy-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>3 ripe bananas</li>
+                    <li>1½ cups flour</li>
+                    <li>1/3 cup vegetable oil</li>
+                    <li>2/3 cup sugar</li>
+                    <li>1 egg</li>
+                    <li>1 teaspoon baking soda</li>
+                    <li>1 teaspoon vanilla extract</li>
+                    <li>Pinch of salt</li>
+                    <li>Optional: chocolate chips or nuts</li>
+                    <li>Muffin tin and paper liners</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating the oven</li>
+                        <li>Handling hot muffin tin</li>
+                        <li>Supervising electric mixer use</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Ask adult to preheat oven to 180°C/350°F</li>
+                        <li>Line muffin tin with paper liners</li>
+                        <li>Mash bananas in a large bowl</li>
+                        <li>Add oil, sugar, egg, and vanilla</li>
+                        <li>Mix flour, baking soda, and salt separately</li>
+                        <li>Combine wet and dry ingredients</li>
+                        <li>Add optional mix-ins</li>
+                        <li>Fill muffin cups 2/3 full</li>
+                        <li>Adult will bake for 20-25 minutes</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Use very ripe bananas for best flavor</li>
+                        <li>Don't overmix the batter</li>
+                        <li>Test with a toothpick for doneness</li>
+                    </ul>
+                </div>
+
+                <div class="science-corner">
+                    <h3>Kitchen Science:</h3>
+                    <p>Watch how baking soda makes the muffins rise! 
+                    It reacts with the bananas to create tiny air bubbles.</p>
+                </div>
+
+                <button class="button" onclick="startTimer(2100)">Start 35-Minute Timer</button>
+                <div class="timer" id="timer-muffins"></div>
+            </div>
+        </div>
+
+        <!-- Baking Recipe 3: Pizza Rolls -->
+        <div class="recipe-card" data-category="baking" data-skill="advanced" data-time="long" data-diet="vegetarian">
+            <h2>🌀 Swirly Pizza Rolls</h2>
+            <span class="difficulty hard">Advanced</span>
+            <span class="time-tag">50 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>For the dough:
+                        <ul>
+                            <li>2 cups flour</li>
+                            <li>1 packet instant yeast</li>
+                            <li>1 teaspoon sugar</li>
+                            <li>1/2 teaspoon salt</li>
+                            <li>2/3 cup warm water</li>
+                            <li>2 tablespoons olive oil</li>
+                        </ul>
+                    </li>
+                    <li>For the filling:
+                        <ul>
+                            <li>1 cup tomato sauce</li>
+                            <li>1 cup grated cheese</li>
+                            <li>1 teaspoon Italian herbs</li>
+                            <li>Your choice of toppings</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Handling warm water</li>
+                        <li>Operating the oven</li>
+                        <li>Using sharp knives</li>
+                        <li>Handling hot baking sheet</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Mix flour, yeast, sugar, and salt</li>
+                        <li>Adult will add warm water and oil</li>
+                        <li>Knead dough for 5 minutes</li>
+                        <li>Let rise for 30 minutes</li>
+                        <li>Roll out into rectangle</li>
+                        <li>Spread sauce and toppings</li>
+                        <li>Roll up like a swiss roll</li>
+                        <li>Cut into 12 pieces</li>
+                        <li>Place on baking sheet</li>
+                        <li>Adult will bake at 200°C/400°F for 15-20 minutes</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Use dental floss to cut rolls neatly</li>
+                        <li>Don't overfill or they'll leak</li>
+                        <li>Let cool slightly before eating</li>
+                    </ul>
+                </div>
+
+                <div class="science-corner">
+                    <h3>Kitchen Science:</h3>
+                    <p>Watch the dough rise! Yeast eats sugar and produces gas bubbles, 
+                    making the dough grow bigger.</p>
+                </div>
+
+                <button class="button" onclick="startTimer(3000)">Start 50-Minute Timer</button>
+                <div class="timer" id="timer-pizzarolls"></div>
+            </div>
+        </div>
+        <!-- Baking Recipe 4: Rainbow Cake -->
+        <div class="recipe-card" data-category="baking" data-skill="advanced" data-time="long" data-diet="vegetarian">
+            <h2>🌈 Rainbow Layer Cake</h2>
+            <span class="difficulty hard">Advanced</span>
+            <span class="time-tag">90 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>For the cake:
+                        <ul>
+                            <li>3 cups all-purpose flour</li>
+                            <li>2 cups sugar</li>
+                            <li>3 teaspoons baking powder</li>
+                            <li>4 eggs</li>
+                            <li>1 cup milk</li>
+                            <li>3/4 cup vegetable oil</li>
+                            <li>2 teaspoons vanilla extract</li>
+                            <li>Food coloring (red, yellow, green, blue)</li>
+                        </ul>
+                    </li>
+                    <li>For the frosting:
+                        <ul>
+                            <li>500g cream cheese</li>
+                            <li>2 cups powdered sugar</li>
+                            <li>1 teaspoon vanilla extract</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating the oven</li>
+                        <li>Handling hot pans</li>
+                        <li>Using electric mixer</li>
+                        <li>Cutting and assembling layers</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Ask adult to preheat oven to 180°C/350°F</li>
+                        <li>Grease and line cake pans</li>
+                        <li>Mix dry ingredients in large bowl</li>
+                        <li>Mix wet ingredients in separate bowl</li>
+                        <li>Combine wet and dry ingredients</li>
+                        <li>Divide batter into 4 portions</li>
+                        <li>Add different food coloring to each</li>
+                        <li>Bake each layer 20-25 minutes</li>
+                        <li>Cool completely</li>
+                        <li>Make frosting:
+                            <ul>
+                                <li>Beat cream cheese until smooth</li>
+                                <li>Add powdered sugar and vanilla</li>
+                            </ul>
+                        </li>
+                        <li>Stack layers with frosting between</li>
+                        <li>Cover entire cake with remaining frosting</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Use gel food coloring for brighter colors</li>
+                        <li>Chill layers before frosting</li>
+                        <li>Use a serrated knife to level layers</li>
+                    </ul>
+                </div>
+
+                <div class="science-corner">
+                    <h3>Kitchen Science:</h3>
+                    <p>Watch how baking powder makes the cake rise! The heat creates 
+                    tiny bubbles that make the cake light and fluffy.</p>
+                </div>
+
+                <button class="button" onclick="startTimer(5400)">Start 90-Minute Timer</button>
+                <div class="timer" id="timer-rainbow"></div>
+            </div>
+        </div>
+
+        <!-- HEALTHY SNACKS CATEGORY -->
+
+        <!-- Healthy Snack Recipe 1: Fruit Kebabs -->
+        <div class="recipe-card" data-category="snacks" data-skill="beginner" data-time="quick" data-diet="gluten-free">
+            <h2>🍓 Rainbow Fruit Kebabs</h2>
+            <span class="difficulty easy">Beginner</span>
+            <span class="time-tag">15 mins</span>
+            <span class="diet-tag">Gluten-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>Wooden skewers</li>
+                    <li>Selection of fruits:
+                        <ul>
+                            <li>Strawberries</li>
+                            <li>Orange segments</li>
+                            <li>Pineapple chunks</li>
+                            <li>Green grapes</li>
+                            <li>Blueberries</li>
+                        </ul>
+                    </li>
+                    <li>Optional: yogurt for dipping</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Cutting larger fruits</li>
+                        <li>Supervising skewer use</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Wash all fruits thoroughly</li>
+                        <li>Adult will cut larger fruits</li>
+                        <li>Thread fruits onto skewers in rainbow order</li>
+                        <li>If using, prepare yogurt dip</li>
+                        <li>Arrange on plate</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Use seasonal fruits for best taste</li>
+                        <li>Make patterns with the fruits</li>
+                        <li>Try different fruit combinations</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Natural sugars for energy</li>
+                        <li>Vitamin C from citrus fruits</li>
+                        <li>Fiber for healthy digestion</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(900)">Start 15-Minute Timer</button>
+                <div class="timer" id="timer-kebabs"></div>
+            </div>
+        </div>
+        <!-- Healthy Snack Recipe 2: Energy Balls -->
+        <div class="recipe-card" data-category="snacks" data-skill="beginner" data-time="quick" data-diet="gluten-free">
+            <h2>🥜 No-Bake Energy Balls</h2>
+            <span class="difficulty easy">Beginner</span>
+            <span class="time-tag">15 mins</span>
+            <span class="diet-tag">Gluten-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>1 cup rolled oats (gluten-free)</li>
+                    <li>1/2 cup peanut butter</li>
+                    <li>1/3 cup honey</li>
+                    <li>1/4 cup mini chocolate chips</li>
+                    <li>1/4 cup dried cranberries</li>
+                    <li>1 tablespoon chia seeds</li>
+                    <li>1 teaspoon vanilla extract</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Checking for allergies</li>
+                        <li>Measuring sticky ingredients</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Mix all ingredients in a large bowl</li>
+                        <li>Chill mixture for 30 minutes</li>
+                        <li>Roll into small balls</li>
+                        <li>Place on parchment paper</li>
+                        <li>Store in airtight container</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Wet hands to prevent sticking</li>
+                        <li>Try different nut butters</li>
+                        <li>Keep refrigerated</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Protein from nuts</li>
+                        <li>Healthy fats from chia seeds</li>
+                        <li>Energy from oats</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(900)">Start 15-Minute Timer</button>
+                <div class="timer" id="timer-energyballs"></div>
+            </div>
+        </div>
+
+        <!-- Healthy Snack Recipe 3: Veggie Faces -->
+        <div class="recipe-card" data-category="snacks" data-skill="beginner" data-time="quick" data-diet="gluten-free">
+            <h2>😊 Funny Face Veggie Plates</h2>
+            <span class="difficulty easy">Beginner</span>
+            <span class="time-tag">15 mins</span>
+            <span class="diet-tag">Gluten-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>Round plate for face</li>
+                    <li>Vegetables for features:
+                        <ul>
+                            <li>Cucumber slices for eyes</li>
+                            <li>Cherry tomatoes for nose</li>
+                            <li>Bell pepper strips for mouth</li>
+                            <li>Carrot sticks for hair</li>
+                            <li>Broccoli for eyebrows</li>
+                        </ul>
+                    </li>
+                    <li>Hummus or dip for "glue"</li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Cutting vegetables</li>
+                        <li>Supervising assembly</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Wash all vegetables</li>
+                        <li>Adult helps cut vegetables</li>
+                        <li>Spread hummus on plate</li>
+                        <li>Create face features with vegetables</li>
+                        <li>Give your face a name!</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Make different expressions</li>
+                        <li>Try seasonal vegetables</li>
+                        <li>Take a photo before eating</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Various vitamins from vegetables</li>
+                        <li>Protein from hummus</li>
+                        <li>Fiber for healthy digestion</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(900)">Start 15-Minute Timer</button>
+                <div class="timer" id="timer-veggieplates"></div>
+            </div>
+        </div>
+
+        <!-- Healthy Snack Recipe 4: Smoothie Bowl -->
+        <div class="recipe-card" data-category="snacks" data-skill="intermediate" data-time="quick" data-diet="dairy-free">
+            <h2>🥝 Rainbow Smoothie Bowl</h2>
+            <span class="difficulty medium">Intermediate</span>
+            <span class="time-tag">15 mins</span>
+            <span class="diet-tag">Dairy-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>For the smoothie base:
+                        <ul>
+                            <li>2 frozen bananas</li>
+                            <li>1 cup frozen berries</li>
+                            <li>1 cup coconut milk</li>
+                            <li>1 tablespoon honey</li>
+                        </ul>
+                    </li>
+                    <li>For toppings:
+                        <ul>
+                            <li>Fresh fruit slices</li>
+                            <li>Granola</li>
+                            <li>Coconut flakes</li>
+                            <li>Chia seeds</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating blender</li>
+                        <li>Cutting fresh fruit</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Add frozen fruits to blender</li>
+                        <li>Pour in coconut milk</li>
+                        <li>Add honey</li>
+                        <li>Adult will blend until smooth</li>
+                        <li>Pour into bowl</li>
+                        <li>Arrange toppings in rainbow pattern</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Use frozen fruit for thicker texture</li>
+                        <li>Create patterns with toppings</li>
+                        <li>Eat right away before it melts</li>
+                    </ul>
+                </div>
+
+                <div class="nutrition-info">
+                    <h3>Nutrition Facts:</h3>
+                    <ul>
+                        <li>Antioxidants from berries</li>
+                        <li>Healthy fats from coconut</li>
+                        <li>Natural energy from fruits</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(900)">Start 15-Minute Timer</button>
+                <div class="timer" id="timer-smoothiebowl"></div>
+            </div>
+        </div>
+        <!-- SPECIAL OCCASIONS CATEGORY -->
+
+        <!-- Special Occasion Recipe 1: Birthday Cake Pops -->
+        <div class="recipe-card" data-category="special" data-skill="advanced" data-time="long" data-diet="vegetarian">
+            <h2>🎂 Festive Cake Pops</h2>
+            <span class="difficulty hard">Advanced</span>
+            <span class="time-tag">60 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>For the cake mixture:
+                        <ul>
+                            <li>1 baked cake (any flavor)</li>
+                            <li>1/2 cup frosting</li>
+                            <li>Lollipop sticks</li>
+                        </ul>
+                    </li>
+                    <li>For decorating:
+                        <ul>
+                            <li>Chocolate melts (various colors)</li>
+                            <li>Sprinkles</li>
+                            <li>Edible glitter</li>
+                            <li>Styrofoam block (for drying)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Melting chocolate</li>
+                        <li>Using hot equipment</li>
+                        <li>Handling sharp sticks</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Crumble cake into fine crumbs</li>
+                        <li>Mix with frosting until moldable</li>
+                        <li>Roll into small balls</li>
+                        <li>Chill for 15 minutes</li>
+                        <li>Adult will melt chocolate</li>
+                        <li>Dip stick in chocolate, then insert into balls</li>
+                        <li>Freeze for 5 minutes</li>
+                        <li>Dip in melted chocolate</li>
+                        <li>Add decorations</li>
+                        <li>Stand in styrofoam to dry</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Keep balls same size for even cooking</li>
+                        <li>Tap stick gently to remove excess chocolate</li>
+                        <li>Add decorations before chocolate sets</li>
+                    </ul>
+                </div>
+
+                <div class="storage-info">
+                    <h3>Storage:</h3>
+                    <ul>
+                        <li>Keep in fridge up to 1 week</li>
+                        <li>Store in airtight container</li>
+                        <li>Can be frozen for 1 month</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(3600)">Start 60-Minute Timer</button>
+                <div class="timer" id="timer-cakepops"></div>
+            </div>
+        </div>
+
+        <!-- Special Occasion Recipe 2: Holiday Cookie House -->
+        <div class="recipe-card" data-category="special" data-skill="advanced" data-time="long" data-diet="vegetarian">
+            <h2>🏠 Cookie Dream House</h2>
+            <span class="difficulty hard">Advanced</span>
+            <span class="time-tag">120 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>For the cookies:
+                        <ul>
+                            <li>3 cups flour</li>
+                            <li>3/4 cup butter</li>
+                            <li>3/4 cup sugar</li>
+                            <li>1 egg</li>
+                            <li>1/2 teaspoon vanilla</li>
+                            <li>House template</li>
+                        </ul>
+                    </li>
+                    <li>For decoration:
+                        <ul>
+                            <li>Royal icing</li>
+                            <li>Candies</li>
+                            <li>Food coloring</li>
+                            <li>Piping bags</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating oven</li>
+                        <li>Cutting dough</li>
+                        <li>Handling hot trays</li>
+                        <li>Making royal icing</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Mix butter and sugar until fluffy</li>
+                        <li>Add egg and vanilla</li>
+                        <li>Mix in flour gradually</li>
+                        <li>Chill dough for 1 hour</li>
+                        <li>Roll out dough</li>
+                        <li>Cut house pieces using template</li>
+                        <li>Adult will bake at 180°C/350°F for 12-15 minutes</li>
+                        <li>Cool completely</li>
+                        <li>Assemble with royal icing</li>
+                        <li>Decorate with candies</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Let each section dry before adding more</li>
+                        <li>Use cans to support walls while drying</li>
+                        <li>Make extra pieces in case of breakage</li>
+                    </ul>
+                </div>
+
+                <div class="science-corner">
+                    <h3>Kitchen Science:</h3>
+                    <p>Royal icing works like cement! It hardens when it dries, 
+                    making a strong "glue" for your house.</p>
+                </div>
+
+                <button class="button" onclick="startTimer(7200)">Start 120-Minute Timer</button>
+                <div class="timer" id="timer-cookiehouse"></div>
+            </div>
+        </div>
+        <!-- Special Occasion Recipe 3: Party Rainbow Pizza -->
+        <div class="recipe-card" data-category="special" data-skill="intermediate" data-time="medium" data-diet="vegetarian">
+            <h2>🌈 Party Rainbow Pizza</h2>
+            <span class="difficulty medium">Intermediate</span>
+            <span class="time-tag">45 mins</span>
+            <span class="diet-tag">Vegetarian</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>1 large pizza base</li>
+                    <li>1 cup tomato sauce</li>
+                    <li>2 cups mozzarella cheese</li>
+                    <li>Rainbow toppings:
+                        <ul>
+                            <li>Red: cherry tomatoes, red peppers</li>
+                            <li>Orange: carrots, orange peppers</li>
+                            <li>Yellow: corn, yellow peppers</li>
+                            <li>Green: broccoli, spinach</li>
+                            <li>Purple: red onion, eggplant</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Operating the oven</li>
+                        <li>Cutting vegetables</li>
+                        <li>Handling hot pizza</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Preheat oven to 200°C/400°F (adult task)</li>
+                        <li>Spread sauce on pizza base</li>
+                        <li>Sprinkle with cheese</li>
+                        <li>Arrange toppings in rainbow arcs</li>
+                        <li>Adult will place in oven</li>
+                        <li>Bake for 15-20 minutes</li>
+                        <li>Cool slightly before cutting</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Pre-cook harder vegetables</li>
+                        <li>Cut toppings same size for even cooking</li>
+                        <li>Take a photo before serving!</li>
+                    </ul>
+                </div>
+
+                <div class="party-tips">
+                    <h3>Party Serving Ideas:</h3>
+                    <ul>
+                        <li>Cut into small squares for sharing</li>
+                        <li>Make multiple pizzas with different patterns</li>
+                        <li>Let guests choose their rainbow toppings</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(2700)">Start 45-Minute Timer</button>
+                <div class="timer" id="timer-rainbowpizza"></div>
+            </div>
+        </div>
+
+        <!-- Special Occasion Recipe 4: Celebration Ice Cream Sundae Bar -->
+        <div class="recipe-card" data-category="special" data-skill="beginner" data-time="quick" data-diet="gluten-free">
+            <h2>🍨 Build-Your-Own Sundae Bar</h2>
+            <span class="difficulty easy">Beginner</span>
+            <span class="time-tag">15 mins</span>
+            <span class="diet-tag">Gluten-Free</span>
+
+            <div class="recipe-info">
+                <h3>You'll need:</h3>
+                <ul>
+                    <li>Ice cream flavors:
+                        <ul>
+                            <li>Vanilla</li>
+                            <li>Chocolate</li>
+                            <li>Strawberry</li>
+                        </ul>
+                    </li>
+                    <li>Toppings station:
+                        <ul>
+                            <li>Fresh fruit pieces</li>
+                            <li>Chopped nuts</li>
+                            <li>Sprinkles</li>
+                            <li>Mini marshmallows</li>
+                            <li>Chocolate chips</li>
+                        </ul>
+                    </li>
+                    <li>Sauces:
+                        <ul>
+                            <li>Chocolate sauce</li>
+                            <li>Caramel sauce</li>
+                            <li>Strawberry sauce</li>
+                        </ul>
+                    </li>
+                    <li>Equipment:
+                        <ul>
+                            <li>Ice cream scoop</li>
+                            <li>Small bowls</li>
+                            <li>Spoons</li>
+                            <li>Serving containers for toppings</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div class="safety-warning">
+                    <p>⚠️ Adult needed for:</p>
+                    <ul>
+                        <li>Checking for allergies</li>
+                        <li>Cutting fresh fruit</li>
+                        <li>Supervising serving</li>
+                    </ul>
+                </div>
+
+                <div class="recipe-steps">
+                    <h3>Steps:</h3>
+                    <ol>
+                        <li>Set up serving stations in order:
+                            <ul>
+                                <li>Bowls station</li>
+                                <li>Ice cream station</li>
+                                <li>Toppings station</li>
+                                <li>Sauce station</li>
+                            </ul>
+                        </li>
+                        <li>Keep ice cream in freezer until ready</li>
+                        <li>Put toppings in separate bowls</li>
+                        <li>Have spoons ready for each topping</li>
+                        <li>Create labels for flavors and toppings</li>
+                    </ol>
+                </div>
+
+                <div class="recipe-tips">
+                    <h3>Tips:</h3>
+                    <ul>
+                        <li>Pre-scoop ice cream for easier serving</li>
+                        <li>Keep toppings in small portions</li>
+                        <li>Have wet wipes ready for cleanup</li>
+                    </ul>
+                </div>
+
+                <div class="party-tips">
+                    <h3>Party Tips:</h3>
+                    <ul>
+                        <li>Create a "signature sundae" suggestion</li>
+                        <li>Have a sundae-naming competition</li>
+                        <li>Take photos of creative creations</li>
+                    </ul>
+                </div>
+
+                <button class="button" onclick="startTimer(900)">Start 15-Minute Timer</button>
+                <div class="timer" id="timer-sundaebar"></div>
+            </div>
+        </div>
+    </div> <!-- Closing recipe-container div -->
+
+    <script>
+        // Timer functionality
+        function startTimer(seconds) {
+            const timerElements = document.getElementsByClassName('timer');
+            for (let timer of timerElements) {
+                timer.textContent = '';
+            }
+
+            const timerElement = event.target.nextElementSibling;
+            let timeLeft = seconds;
+
+            const countdown = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                timerElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdown);
+                    timerElement.textContent = "Time's up! 🎉";
+                }
+                timeLeft--;
+            }, 1000);
+        }
+
+        // Category filtering
+        function filterMainCategory(category) {
+            const buttons = document.querySelectorAll('.category-button');
+            buttons.forEach(button => button.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Reset other filters
+            document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+
+            const recipes = document.querySelectorAll('.recipe-card');
+            recipes.forEach(recipe => {
+                if (category === 'all' || recipe.dataset.category === category) {
+                    recipe.style.display = 'block';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            });
+        }
+
+        // Skill level filtering
+        function filterBySkill(level) {
+            const button = event.target;
+            button.classList.toggle('active');
+
+            // Remove active state from other skill buttons
+            const skillButtons = document.querySelectorAll('.filter-button');
+            skillButtons.forEach(btn => {
+                if (btn !== button && btn.parentElement.querySelector('h3').textContent === 'Skill Level') {
+                    btn.classList.remove('active');
+                }
+            });
+
+            const recipes = document.querySelectorAll('.recipe-card');
+            recipes.forEach(recipe => {
+                const mainCategoryActive = document.querySelector('.category-button.active');
+                const mainCategoryMatch = mainCategoryActive.textContent.toLowerCase() === 'all recipes' || 
+                                        recipe.dataset.category === mainCategoryActive.textContent.toLowerCase();
+
+                if (button.classList.contains('active')) {
+                    recipe.style.display = (recipe.dataset.skill === level && mainCategoryMatch) ? 'block' : 'none';
+                } else {
+                    recipe.style.display = mainCategoryMatch ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Time filtering
+        function filterByTime(duration) {
+            const button = event.target;
+            button.classList.toggle('active');
+
+            // Remove active state from other time buttons
+            const timeButtons = document.querySelectorAll('.filter-button');
+            timeButtons.forEach(btn => {
+                if (btn !== button && btn.parentElement.querySelector('h3').textContent === 'Time Required') {
+                    btn.classList.remove('active');
+                }
+            });
+
+            const recipes = document.querySelectorAll('.recipe-card');
+            recipes.forEach(recipe => {
+                const mainCategoryActive = document.querySelector('.category-button.active');
+                const mainCategoryMatch = mainCategoryActive.textContent.toLowerCase() === 'all recipes' || 
+                                        recipe.dataset.category === mainCategoryActive.textContent.toLowerCase();
+
+                if (button.classList.contains('active')) {
+                    recipe.style.display = (recipe.dataset.time === duration && mainCategoryMatch) ? 'block' : 'none';
+                } else {
+                    recipe.style.display = mainCategoryMatch ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Dietary filtering
+        function filterByDiet(diet) {
+            const button = event.target;
+            button.classList.toggle('active');
+
+            // Remove active state from other diet buttons
+            const dietButtons = document.querySelectorAll('.filter-button');
+            dietButtons.forEach(btn => {
+                if (btn !== button && btn.parentElement.querySelector('h3').textContent === 'Dietary Options') {
+                    btn.classList.remove('active');
+                }
+            });
+
+            const recipes = document.querySelectorAll('.recipe-card');
+            recipes.forEach(recipe => {
+                const mainCategoryActive = document.querySelector('.category-button.active');
+                const mainCategoryMatch = mainCategoryActive.textContent.toLowerCase() === 'all recipes' || 
+                                        recipe.dataset.category === mainCategoryActive.textContent.toLowerCase();
+
+                if (button.classList.contains('active')) {
+                    recipe.style.display = (recipe.dataset.diet === diet && mainCategoryMatch) ? 'block' : 'none';
+                } else {
+                    recipe.style.display = mainCategoryMatch ? 'block' : 'none';
+                }
+            });
+        }
+
+        // Search functionality
+        function searchRecipes() {
+            const searchTerm = document.getElementById('recipe-search-input').value.toLowerCase();
+            const recipes = document.querySelectorAll('.recipe-card');
+
+            recipes.forEach(recipe => {
+                const recipeText = recipe.textContent.toLowerCase();
+                if (recipeText.includes(searchTerm)) {
+                    recipe.style.display = 'block';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            });
+        }
+
+        // Add event listener for search input
+        document.getElementById('recipe-search-input').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                searchRecipes();
+            }
+        });
+
+        // Reset all filters
+        function resetFilters() {
+            const recipes = document.querySelectorAll('.recipe-card');
+            const buttons = document.querySelectorAll('.filter-button, .category-button');
+            
+            recipes.forEach(recipe => recipe.style.display = 'block');
+            buttons.forEach(button => button.classList.remove('active'));
+            document.querySelector('.category-button').classList.add('active');
+            document.getElementById('recipe-search-input').value = '';
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show all recipes initially
+            document.querySelector('.category-button').classList.add('active');
+        });
+    </script>
+</body>
+</html>
