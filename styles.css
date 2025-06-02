@@ -1,0 +1,219 @@
+/* Global Styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #FFE5E5;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #FF9999;
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    background-color: #98FB98;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.nav-menu a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: white;
+    border-radius: 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: #FFB6C1;
+}
+
+/* Welcome Message */
+.welcome-message {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Container Layouts */
+.container, .recipe-container, .game-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Card Styles */
+.food-card, .recipe-card, .game-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.food-card:hover, .recipe-card:hover, .game-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Recipe Specific Styles */
+.difficulty {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.easy {
+    background-color: #90EE90;
+}
+
+.medium {
+    background-color: #FFD700;
+}
+
+.hard {
+    background-color: #FFA07A;
+}
+
+.expert {
+    background-color: #FF6B6B;
+}
+
+.recipe-steps {
+    background-color: #FFF5EE;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Button Styles */
+.button {
+    background-color: #FF69B4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.2s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+/* Timer Styles */
+.timer {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #FF69B4;
+}
+
+/* Recipe Categories */
+.recipe-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.category-button {
+    background-color: #FFB6C1;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.category-button:hover {
+    background-color: #FF69B4;
+    color: white;
+}
+
+.category-button.active {
+    background-color: #FF69B4;
+    color: white;
+}
+
+/* Recipe Tips */
+.recipe-tips {
+    background-color: #F0FFF0;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Safety Warnings */
+.safety-warning {
+    background-color: #FFE4E1;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
+    border-left: 4px solid #FF6B6B;
+}
+
+/* Nutrition Info */
+.nutrition-info {
+    background-color: #E6E6FA;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Recipe Difficulty Levels */
+.difficulty-indicator {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.difficulty-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+}
+
+.difficulty-dot.active {
+    background-color: #FF69B4;
+}
+
+/* Print Styles */
+@media print {
+    .nav-menu, .button {
+        display: none;
+    }
+    
+    .recipe-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container, .recipe-container, .game-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu a {
+        display: block;
+        margin: 5px 0;
+    }
+}
